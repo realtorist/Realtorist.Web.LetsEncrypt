@@ -1,0 +1,1 @@
+Enables HTTPS for Realtorist framework using LetsEncrypt

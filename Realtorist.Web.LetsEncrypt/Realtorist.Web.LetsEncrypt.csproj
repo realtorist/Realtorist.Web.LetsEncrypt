@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <PackageId>Realtorist.Web.LetsEncrypt</PackageId>
+    <Version>0.0.1</Version>
+    <Authors>Dmytro Bondarchuk</Authors>
+    <Title>Realtorist.Web.LetsEncrypt</Title>
+    <Description>Enables HTTPS for Realtorist framework using LetsEncrypt</Description>
+    <RepositoryUrl>https://github.com/realtorist/Realtorist.Web.LetsEncrypt</RepositoryUrl>
+    <ReleaseNotes>Initial publish</ReleaseNotes>
+    <IsPackable>true</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ExtCore.Mvc.Infrastructure" Version="6.0.0" />
+    <PackageReference Include="LettuceEncrypt" Version="1.0.1" />
+
+    <PackageReference Include="Realtorist.Models" Version="0.0.1" />
+    <PackageReference Include="Realtorist.Services.Abstractions" Version="0.0.1" />
+  </ItemGroup>
+
+</Project>
