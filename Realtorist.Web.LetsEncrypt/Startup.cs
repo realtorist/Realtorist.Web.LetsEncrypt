@@ -57,6 +57,23 @@ namespace Realtorist.Web.LetsEncrypt
         void IConfigureAction.Execute(IApplicationBuilder app, IServiceProvider serviceProvider)
         {
             var env = serviceProvider.GetService<IWebHostEnvironment>();
+            var logger = serviceProvider.GetService<ILogger<Startup>>();
+            var settingsProvider = serviceProvider.GetService<ISettingsProvider>();
+            var settings = settingsProvider.GetSettingAsync<WebsiteSettings>(SettingTypes.Website).Result;
+            var configuration = serviceProvider.GetService<IConfiguration>();
+
+            var domainName = settings?.WebsiteAddress;
+            if (env.IsDevelopment() && !configuration["LetsEncrypt:DomainName"].IsNullOrEmpty())
+            {
+                domainName = configuration["LetsEncrypt:DomainName"];
+            }
+
+            if (domainName.IsNullOrEmpty())
+            {
+                logger.LogWarning($"Won't enable HTTPS redirection. Domain name wasn't set neither through website address in setting nor through configuration (LestEncrypt->DomainName property)");
+                return;
+            }
+
             if (!env.IsDevelopment())
             {
                 app.UseHsts();
