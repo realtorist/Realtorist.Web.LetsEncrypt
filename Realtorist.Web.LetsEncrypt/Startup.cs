@@ -1,4 +1,3 @@
-using ExtCore.Infrastructure.Actions;
 using LettuceEncrypt;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -9,16 +8,17 @@ using Microsoft.Extensions.Logging;
 using Realtorist.Models.Helpers;
 using Realtorist.Models.Settings;
 using Realtorist.Services.Abstractions.Providers;
+using Realtorist.Extensions.Base;
 using System;
 using System.IO;
 
 namespace Realtorist.Web.LetsEncrypt
 {
-    public class Startup : IConfigureServicesAction, IConfigureAction
+    public class Startup : IConfigureServicesExtension, IConfigureApplicationExtension
     {
         public int Priority => 5;
 
-        void IConfigureServicesAction.Execute(IServiceCollection services, IServiceProvider serviceProvider)
+        public void ConfigureServices(IServiceCollection services, IServiceProvider serviceProvider)
         {
             var env = serviceProvider.GetService<IWebHostEnvironment>();
             var configuration = serviceProvider.GetService<IConfiguration>();
@@ -54,7 +54,7 @@ namespace Realtorist.Web.LetsEncrypt
             .PersistDataToDirectory(new DirectoryInfo("certs"), "password");
         }
 
-        void IConfigureAction.Execute(IApplicationBuilder app, IServiceProvider serviceProvider)
+        public void ConfigureApplication(IApplicationBuilder app, IServiceProvider serviceProvider)
         {
             var env = serviceProvider.GetService<IWebHostEnvironment>();
             var logger = serviceProvider.GetService<ILogger<Startup>>();

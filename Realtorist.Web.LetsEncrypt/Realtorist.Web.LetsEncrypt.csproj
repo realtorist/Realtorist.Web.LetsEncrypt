@@ -13,11 +13,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ExtCore.Mvc.Infrastructure" Version="6.0.0" />
     <PackageReference Include="LettuceEncrypt" Version="1.1.1" />
 
     <PackageReference Include="Realtorist.Models" Version="0.0.2" />
     <PackageReference Include="Realtorist.Services.Abstractions" Version="0.0.2" />
+    <PackageReference Include="Realtorist.Extensions.Base" Version="0.0.1" />
   </ItemGroup>
 
 </Project>
