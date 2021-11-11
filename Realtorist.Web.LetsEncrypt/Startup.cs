@@ -16,7 +16,7 @@ namespace Realtorist.Web.LetsEncrypt
 {
     public class Startup : IConfigureServicesExtension, IConfigureApplicationExtension
     {
-        public int Priority => 5;
+        public int Priority => (int)ExtensionPriority.MainApplication + 2;
 
         public void ConfigureServices(IServiceCollection services, IServiceProvider serviceProvider)
         {

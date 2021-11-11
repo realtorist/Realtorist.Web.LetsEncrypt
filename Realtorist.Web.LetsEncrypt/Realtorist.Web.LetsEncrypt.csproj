@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <PackageId>Realtorist.Web.LetsEncrypt</PackageId>
-    <Version>0.0.1</Version>
+    <Version>0.0.3</Version>
     <Authors>Dmytro Bondarchuk</Authors>
     <Title>Realtorist.Web.LetsEncrypt</Title>
     <Description>Enables HTTPS for Realtorist framework using LetsEncrypt</Description>
@@ -15,9 +15,9 @@
   <ItemGroup>
     <PackageReference Include="LettuceEncrypt" Version="1.1.1" />
 
-    <PackageReference Include="Realtorist.Models" Version="0.0.2" />
-    <PackageReference Include="Realtorist.Services.Abstractions" Version="0.0.2" />
-    <PackageReference Include="Realtorist.Extensions.Base" Version="0.0.2" />
+    <PackageReference Include="Realtorist.Models" Version="0.0.3" />
+    <PackageReference Include="Realtorist.Services.Abstractions" Version="0.0.3" />
+    <PackageReference Include="Realtorist.Extensions.Base" Version="0.0.3" />
   </ItemGroup>
 
 </Project>
